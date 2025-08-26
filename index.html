@@ -10,10 +10,9 @@
 
 let humanScore = 0
 let computerScore = 0
-let computerChoice = rockPaperScissors();
-let humanChoice = getHumanChoice();
 
-console.log(playRound()) 
+
+console.log(playRound(), humanScore, computerScore) 
 
 function getComputerChoice() {
     let computerChoice = rockPaperScissors()
@@ -36,6 +35,8 @@ return prompt('Rock, Paper or Scissors? All lowercase').toLowerCase()} // get's 
 
 
 function playRound() {
+    let computerChoice = getComputerChoice();
+    let humanChoice = getHumanChoice();
     if (humanChoice === 'rock' && computerChoice === 'scissors') {
         return 'YOU WIN! Rock beats Scissors';
     } else if (humanChoice === 'rock' && computerChoice === 'rock') {
@@ -61,8 +62,10 @@ function playRound() {
 
 function updateScore() {
     let outcome = playRound()
+    let humanScore = 0;
+    let computerScore = 0;
     if (outcome.includes('WIN')) {
-        return humanScore+1;
+        return humanScore+;
     } else if (outcome.includes('LOSE')){
         return computerScore++;
     } else {return}
