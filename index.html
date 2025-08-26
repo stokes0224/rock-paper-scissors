@@ -7,37 +7,70 @@
 </head>
 <body>
     <script>
-        //const user = prompt('Rock, Paper or Scissors? All lowercase')
-        let computerChoice = getComputerChoice()
-            if (user === 'rock' && computerChoice === 3) 
-            {console.log('You win, the computer played Scissors')}
-            else if (user === 'rock' && computerChoice ==2) 
-            {console.log('You lose, the computer played Paper')} 
-            else if (user === 'rock' && computerChoice === 1) 
-            {console.log('You drew, the computer played Rock')}
-            else if (user === 'paper' && computerChoice === 1) 
-            {console.log('You win, the computer played Rock')}
-            else if (user === 'paper' && computerChoice ==3) 
-            {console.log('You lose, the computer played Scissors')} 
-            else if (user === 'paper' && computerChoice === 2) 
-            {console.log('You drew, the computer played Paper')}
-            else if (user === 'scissors' && computerChoice === 2) 
-            {console.log('You win, the computer played Paper')}
-            else if (user === 'scissors' && computerChoice ==1) 
-            {console.log('You lose, the computer played Rock')} 
-            else 
-            {console.log('You drew, the computer played Scissors')}
-            
-            function getHumanChoice = prompt('Rock, Paper or Scissors? All lowercase')
 
-            function lowerCase() { //casing for the user input
-            return user.toLowerCase()
-            }
+let humanScore = 0
+let computerScore = 0
+let computerChoice = rockPaperScissors();
+let humanChoice = getHumanChoice();
 
-            function getComputerChoice() { 
-            return Math.floor(Math.random() * 3) + 1 
-            }  // 1 equals rock, 2 equals paper, 3 equals scissors
-            console.log(computerChoice)
+console.log(playRound()) 
+
+function getComputerChoice() {
+    let computerChoice = rockPaperScissors()
+    if (computerChoice === 1) {
+        return 'rock';
+    } else if (computerChoice === 2){
+        return 'paper';
+    } else {
+        return 'scissors'
+        }  // links the RNG to a choice.
+}
+
+function rockPaperScissors() { 
+  return Math.floor(Math.random() * 3) + 1 
+  }  // 1 equals rock, 2 equals paper, 3 equals scissors
+ 
+function getHumanChoice() {
+return prompt('Rock, Paper or Scissors? All lowercase').toLowerCase()} // get's the user input
+  
+
+
+function playRound() {
+    if (humanChoice === 'rock' && computerChoice === 'scissors') {
+        return 'YOU WIN! Rock beats Scissors';
+    } else if (humanChoice === 'rock' && computerChoice === 'rock') {
+        return 'DRAW! Rock meets Rock'
+    } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+        return 'YOU LOSE! Paper beats Rock'
+    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+        return 'YOU WIN! Paper beats Rock';
+    } else if (humanChoice === 'paper' && computerChoice === 'paper') {
+        return 'DRAW! Paper meets Paper'
+    } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+        return 'YOU LOSE! Scissors beats Paper'
+    }  else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+        return 'YOU WIN! Scissors beats Paper';
+    } else if (humanChoice === 'scissors' && computerChoice === 'scissors') {
+        return 'DRAW! Scissors meets Scissors'
+    } else (humanChoice === 'scissors' && computerChoice === 'rock') 
+        return 'YOU LOSE! Rock beats Scissors';
+    }        
+
+
+
+
+function updateScore() {
+    let outcome = playRound()
+    if (outcome.includes('WIN')) {
+        return humanScore+1;
+    } else if (outcome.includes('LOSE')){
+        return computerScore++;
+    } else {return}
+}
+    
+    
+
+
 
     </script>
 
