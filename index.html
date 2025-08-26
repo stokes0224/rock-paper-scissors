@@ -9,9 +9,9 @@
     <script>
 
 
-    
-
-
+function rockPaperScissors() { 
+  return Math.floor(Math.random() * 3) + 1 
+  }  // RNG for 1 equals rock, 2 equals paper, 3 equals scissors
 
 
 function getComputerChoice() {
@@ -24,10 +24,6 @@ function getComputerChoice() {
         return 'scissors'
         }  // links the RNG to a choice.
 }
-
-function rockPaperScissors() { 
-  return Math.floor(Math.random() * 3) + 1 
-  }  // 1 equals rock, 2 equals paper, 3 equals scissors
  
 function getHumanChoice() {
 return prompt('Rock, Paper or Scissors?').toLowerCase()} // get's the user input
@@ -84,7 +80,7 @@ function playGame() { // had tried to build these separately but ultimately only
     }
 }  
 
-playGame()
+playGame() //runs game browser
     </script>
 </body>
 </html>
