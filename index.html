@@ -30,15 +30,12 @@ function rockPaperScissors() {
   }  // 1 equals rock, 2 equals paper, 3 equals scissors
  
 function getHumanChoice() {
-return prompt('Rock, Paper or Scissors? All lowercase').toLowerCase()} // get's the user input
-  
-
-
+return prompt('Rock, Paper or Scissors?').toLowerCase()} // get's the user input
 
 
 function playRound() {
-        const computerChoice = getComputerChoice();
-        const humanChoice = getHumanChoice();
+        const computerChoice = getComputerChoice(); // had to make these constants 
+        const humanChoice = getHumanChoice(); // otherwise it asked for humanChoice 5 times.
         if (humanChoice === 'rock' && computerChoice === 'scissors') {
             return 'YOU WIN! Rock beats Scissors';
         } else if (humanChoice === 'rock' && computerChoice === 'rock') {
@@ -57,6 +54,8 @@ function playRound() {
             return 'DRAW! Scissors meets Scissors'
         } else if (humanChoice === 'scissors' && computerChoice === 'rock') 
             return 'YOU LOSE! Rock beats Scissors';
+        else {alert('Invalid Entry')} 
+
     }
 
 let humanScore = 0;
@@ -64,9 +63,9 @@ let computerScore = 0;
 
 
 
-function playGame() {
+function playGame() { // had tried to build these separately but ultimately only worked in one function (for me)
     const rounds = 5;
-    for (let i = 0; i < rounds; i++) {
+    for (let i = 0; i < rounds; i++) { //classic for loop found online
     let outCome = playRound()
     if (outCome.includes('WIN')) {
     humanScore++;
@@ -74,9 +73,9 @@ function playGame() {
     computerScore++;}
 
     console.log(outCome); // show what happened this round
-    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`); //scoreboard
     }
-    if (humanScore > computerScore) {
+    if (humanScore > computerScore) { // final thing to close out game.
         console.log('You won the Game!!!!')
     } else if (humanScore < computerScore) {
         console.log('You are a loser!!!!') 
